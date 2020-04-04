@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="91985524-f47a-4dff-b789-dd49ebb862ba"
+    Publisher="CN=wamei"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="91985524-f47a-4dff-b789-dd49ebb862ba" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>MultiPlatformTest.UWP</DisplayName>
+    <PublisherDisplayName>Kazuaki</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="MultiPlatformTest.UWP.App">
+      <uap:VisualElements
+        DisplayName="MultiPlatformTest.UWP"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="MultiPlatformTest.UWP"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+      <uap:ApplicationContentUriRules>
+        <uap:Rule Type="include" Match="http://127.0.0.1:8080/" WindowsRuntimeAccess="none"/>
+        <uap:Rule Type="include" Match="http://127.0.0.1:8081/" WindowsRuntimeAccess="none"/>
+        <uap:Rule Type="include" Match="http://127.0.0.1:8082/" WindowsRuntimeAccess="none"/>
+        <uap:Rule Type="include" Match="http://127.0.0.1:8083/" WindowsRuntimeAccess="none"/>
+        <uap:Rule Type="include" Match="http://127.0.0.1:8084/" WindowsRuntimeAccess="none"/>
+        <uap:Rule Type="include" Match="http://127.0.0.1:8085/" WindowsRuntimeAccess="none"/>
+      </uap:ApplicationContentUriRules>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

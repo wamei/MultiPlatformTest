@@ -7,28 +7,34 @@ namespace MultiPlatformTest
 {
     public partial class App : Application
     {
+        // UWPの場合事前にApplicationContentUriRulesへURLの指定が必要
+        private int[] portCandidates = { 8080, 8081, 8082, 8083, 8084, 8085 };
+
         public App()
         {
             InitializeComponent();
 
-            LaunchHttpd();
-
-            MainPage = new MainPage();
+            int port = LaunchHttpd();
+            MainPage = new MainPage() { Port = port };
         }
 
-        private async void LaunchHttpd()
+        private int LaunchHttpd()
         {
-
-            try
+            foreach (int port in portCandidates)
             {
-                var server = new SimpleHttpd();
-                server.Start();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
+                try
+                {
+                    var server = new SimpleHttpd(port);
+                    server.Start();
+                    return port;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: port{port}: {ex.Message}");
+                }
 
             }
+            throw new Exception("Faild to start local http server");
         }
 
         protected override void OnStart()
