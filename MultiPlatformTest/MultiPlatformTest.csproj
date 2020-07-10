@@ -11,9 +11,20 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Resources\index.html" />
+    <EmbeddedResource Include="Resources\old\index.html" />
+    <EmbeddedResource Include="Resources\new\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\index.html" />
+    <Folder Include="Versions\" />
+    <Folder Include="Versions\old\" />
+    <Folder Include="Versions\new\" />
+    <Folder Include="Resources\old\" />
+    <Folder Include="Resources\new\" />
+    <Folder Include="Core\" />
+    <Folder Include="Core\Models\" />
+    <Folder Include="Core\DependencyService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\new\index.html" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
+using Realms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,34 +9,18 @@ namespace MultiPlatformTest
 {
     public partial class App : Application
     {
-        // UWPの場合事前にApplicationContentUriRulesへURLの指定が必要
-        private int[] portCandidates = { 8080, 8081, 8082, 8083, 8084, 8085 };
-
         public App()
         {
             InitializeComponent();
-
-            int port = LaunchHttpd();
-            MainPage = new MainPage() { Port = port };
-        }
-
-        private int LaunchHttpd()
-        {
-            foreach (int port in portCandidates)
+            try
             {
-                try
-                {
-                    var server = new SimpleHttpd(port);
-                    server.Start();
-                    return port;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error: port{port}: {ex.Message}");
-                }
-
+                MainPage = Core.VersionClassFactory.Create("MainPage", Core.Models.Version.Current) as Page;
             }
-            throw new Exception("Faild to start local http server");
+            catch
+            {
+                Core.Models.Version.Current = Core.Models.Version.Default;
+                MainPage = Core.VersionClassFactory.Create("MainPage", Core.Models.Version.Current) as Page;
+            }
         }
 
         protected override void OnStart()

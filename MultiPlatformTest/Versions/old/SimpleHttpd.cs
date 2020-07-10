@@ -3,8 +3,9 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 
-namespace MultiPlatformTest
+namespace MultiPlatformTest.Version_old
 {
     public class SimpleHttpd
     {
@@ -36,7 +37,9 @@ namespace MultiPlatformTest
             HttpListenerResponse res = context.Response;
 
             var uri = req.Url.AbsolutePath;
+            uri = $"/old{uri}";
             uri = uri.Replace("/", ".");
+            uri = Regex.Replace(uri, "\\.(\\d)", "._$1");
 
             res.StatusCode = (int)HttpStatusCode.OK;
 
