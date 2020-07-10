@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:MultiPlatformTest;assembly=MultiPlatformTest"
-             mc:Ignorable="d" x:Class="MultiPlatformTest.MainPage">
+             xmlns:core="clr-namespace:MultiPlatformTest;assembly=MultiPlatformTest"
+             mc:Ignorable="d" x:Class="MultiPlatformTest.Version_new.MainPage">
     <StackLayout>
-        <local:HybridWebView x:Name="webview" WidthRequest="1000" HeightRequest="1000" />
+        <core:HybridWebView x:Name="webview" WidthRequest="1000" HeightRequest="1000" />
     </StackLayout>
 </ContentPage>

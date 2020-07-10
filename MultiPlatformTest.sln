@@ -180,4 +180,23 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75B2E3B7-5F08-41CC-A107-84926ADA9638}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 80
+		$1.TabWidth = 2
+		$1.TabsToSpaces = True
+		$1.IndentWidth = 2
+		$1.scope = text/x-web
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-vs
+		$0.TextStylePolicy = $3
+		$3.inheritsSet = null
+		$3.scope = text/x-html
+		$0.HTMLFormattingPolicy = $4
+		$4.FormatOnPaste = True
+		$4.XHTMLCodingStyle = True
+		$4.scope = text/x-html
+	EndGlobalSection
 EndGlobal

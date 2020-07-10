@@ -2,21 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MultiPlatformTest</title>
 </head>
 <body>
-  <p>MultiPlatformTest</p>
-  <input type="text" id="message" /><button id="save">save</button>
+  <p>MultiPlatformTest 2.0.0</p>
+  <select type="text" id="versions"></select>
+  <button id="save">save</button>
   <script>
-    const $message = document.getElementById('message');
+    const $versions = document.getElementById('versions');
     const $save = document.getElementById('save');
 
-    function setMessage(data) {
-      $message.value = data;
+    function addVersion(data) {
+      const option = document.createElement('option');
+      option.value = data;
+      option.innerText = data;
+      $versions.appendChild(option);
+    }
+
+    function setVersion(data) {
+      $versions.value = data;
     }
 
     $save.addEventListener('click', function () {
-      invokeAction('save', $message.value);
+      invokeAction('save', $versions.value);
     });
     window.addEventListener('injectedInvokeAction', function () {
       invokeAction('loaded', '');
